@@ -5,17 +5,13 @@ using System;
 
 namespace Timer
 {
+    [Serializable]
     public class GlobalTimer
     {
-        private int _waitingTime;
-        public int WaitingTime { get => _waitingTime; set => _waitingTime = value; }
+        [SerializeField] private float _waitingTime;
+        public float WaitingTime { get => _waitingTime; set => _waitingTime = value; }
         public delegate void TimerEndedDelegate();
         public event TimerEndedDelegate TimerEnded;
-
-        public GlobalTimer(int waitingTime = 5)
-        {
-            WaitingTime = waitingTime;
-        }
 
         public async Task TimerEnd()
         {

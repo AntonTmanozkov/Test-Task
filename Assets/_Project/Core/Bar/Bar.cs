@@ -1,31 +1,22 @@
 using System;
+using Timer;
 using UnityEngine;
 
 namespace Core.Bars
 {
-    public abstract class Bar
+    [Serializable]
+    public class Bar
     {
-        private int _currentValue;
-        public int MaxValue { get; protected set; }
+        [field: SerializeField] public GlobalTimer GlobalTimer { get; private set; } = new();
+        [field: SerializeField] public BarValues BarValues { get; private set; } = new();
+        [field: SerializeField] public ControlMoneyBar ControlMoneyBar { get; private set; }
+        [field: SerializeField] public BarUpgrader BarUpgrader { get; private set; }
+        public BarLvl BarLvl { get; private set; } = new();
 
-        public int CurrentValue { get => _currentValue; protected set =>  Math.Clamp(value, 0, MaxValue); }
-        public delegate void CurrentValueChanhedDelegate(int CurrentValue);
-        public event CurrentValueChanhedDelegate CurrentValueChanhed;
-
-        protected Bar(int maxValue, int initialValue)        
+        public Bar()
         {
-            MaxValue = maxValue;
-            CurrentValue = initialValue;
-        }
-
-        public void Increase(int amount)
-        {
-            CurrentValue += amount;
-        }
-
-        public void Decrease(int amount)
-        {
-            CurrentValue -= amount;
+            ControlMoneyBar = new(this);
+            BarUpgrader = new(this);
         }
     }
 }

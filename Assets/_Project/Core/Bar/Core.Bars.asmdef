@@ -1,7 +1,10 @@
 {
     "name": "Core.Bars",
     "rootNamespace": "Core.Bars",
-    "references": [],
+    "references": [
+        "GUID:016ac6be702556249aab459fd7f27233",
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
