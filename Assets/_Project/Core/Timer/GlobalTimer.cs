@@ -5,10 +5,9 @@ using System;
 
 namespace Timer
 {
-    [Serializable]
     public class GlobalTimer
     {
-        [SerializeField] private float _waitingTime;
+        private float _waitingTime = 5;
         public float WaitingTime { get => _waitingTime; set => _waitingTime = value; }
         public delegate void TimerEndedDelegate();
         public event TimerEndedDelegate TimerEnded;

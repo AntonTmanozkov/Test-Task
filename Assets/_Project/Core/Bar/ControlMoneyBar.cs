@@ -7,7 +7,7 @@ namespace Core.Bars
     [Serializable]
     public class ControlMoneyBar
     {
-        [SerializeField] private int _moneyPerTick;
+        [SerializeField] private int _moneyPerTick = 1;
 
         private GlobalTimer _timerBar;
         private BarValues _barValues;
